@@ -11,7 +11,7 @@ El contenido se organiza de manera modular por unidades y bloques de aprendizaje
 - `UT04-Consultas-Avanzadas-Y-Vistas/` : Consultas complejas mediante SELECT, funciones agregadas, filtros, ordenación, JOINs multitabla, subconsultas, tablas derivadas y creación de vistas.
 - `UT05-Edicion-De-Datos-Y-Transacciones/` : Edición avanzada, control transaccional (BEGIN, COMMIT, ROLLBACK) y gestión de bloqueos concurrentes (FOR UPDATE).
 - `UT06-Programacion-De-Bases-De-Datos/` : Programación procedural en MySQL, creación de procedimientos almacenados, funciones, estructuras de control (IF, CASE, bucles), cursores, gestión de errores y triggers.
-- - `Examenes-UT05-UT06/` : Simulacros de examen integrales y modelos prácticos (reservas de vuelos y butacas, transacciones concurrentes y triggers).
+- `Examenes-UT05-UT06/` : Simulacros de examen integrales y modelos prácticos (reservas de vuelos y butacas, transacciones concurrentes y triggers).
 
 🛠️ Entorno y Tecnologías
 

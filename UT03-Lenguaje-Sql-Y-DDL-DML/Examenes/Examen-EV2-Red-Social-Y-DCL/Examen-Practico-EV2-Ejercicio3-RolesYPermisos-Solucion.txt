@@ -1,0 +1,18 @@
+//Enunciado
+create table usuarios (
+id_usuario VARCHAR(50) NOT NULL,
+password VARCHAR(50) NOT NULL
+);
+
+
+//Creamos un usuario con contraseña que conecte desde cualquier host
+CREATE USER 'usuarios_add'@'localhost' IDENTIFIED BY 'usuarios';
+
+//Creamos un rol de escritura y se lo damos al usuario usuarios_add
+create role escritura; 
+grant insert, update, delete 
+on usuarios.*  
+to escritura;
+
+grant escritura  
+to 'usuarios_add'@'localhost'; 

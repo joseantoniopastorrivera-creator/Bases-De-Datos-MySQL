@@ -1,0 +1,71 @@
+//Creamos base de datos de la red social incluyendo acentos y la letra ñ(Previamente verificamos si existía otra con ese nombre y la borramos)
+
+DROP DATABASE IF EXISTS Ejercicio1_joseantoniopastorrivera;
+CREATE DATABASE Ejercicio1_joseantoniopastorrivera
+CHARACTER SET utf8mb4 
+COLLATE utf8mb4_spanish_ci;
+
+//La seleccionamos
+USE Ejercicio1_joseantoniopastorrivera;
+
+//Creamos la tabla usuarios
+CREATE TABLE usuarios (
+    id_usuarios INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL UNIQUE,
+ email VARCHAR(50) NOT NULL UNIQUE,
+  fecha_registro DATE NOT NULL,
+CONSTRAINT pk_usuarios PRIMARY KEY (id_usuarios)
+);
+
+//Creamos tabla publicaciones
+CREATE TABLE publicaciones (
+    id_publicaciones INT NOT NULL AUTO_INCREMENT,
+    contenido_publicacion VARCHAR(100) NOT NULL,
+  fecha_publicacion DATE NOT NULL,
+  CONSTRAINT fk_publicaciones_usuarios PRIMARY KEY (id_publicaciones)
+ );
+
+//Creamos tabla de comentarios
+CREATE TABLE comentarios (
+    id_comentario INT NOT NULL AUTO_INCREMENT,
+    id_usuarios INT NOT NULL UNIQUE,
+id_publicaciones INT NOT NULL UNIQUE,
+texto_comentario VARCHAR(100) NOT NULL,
+fecha_comentario DATE NOT NULL,
+    CONSTRAINT pk_comentarios PRIMARY KEY (id_publicaciones, id_usuarios),
+        CONSTRAINT fk_comentarios_usuarios FOREIGN KEY (id_usuarios_usuarios) 
+        REFERENCES usuarios (id_usuarios),
+    CONSTRAINT fk_comentarios_publicaciones FOREIGN KEY (id_publicaciones_publicaciones) 
+        REFERENCES publicaciones (id_publicaciones)
+);
+
+//Creamos tabla seguimientos
+CREATE TABLE seguimientos (
+ id_seguimientos INT NOT NULL AUTO_INCREMENT,
+    id_usuarios_followers INT NOT NULL,
+id_usuarios_seguidos INT NOT NULL,
+    fecha_seguimientos DATE NOT NULL, 
+    CONSTRAINT pk_seguimientos PRIMARY KEY (id_seguimientos),
+    CONSTRAINT fk_usuarios_seguidos FOREIGN KEY (id_usuarios_seguidos)
+        REFERENCES seguimientos (id_usuarios),
+CONSTRAINT fk_usuarios_followers FOREIGN KEY (id_usuarios_followers)
+        REFERENCES seguimientos (id_usuarios),
+    CONSTRAINT chk_usuarios_distintos CHECK (id_usuario_followers <> 
+id_usuario_seguido)
+);
+
+//Creamos tabla de likes
+CREATE TABLE likes (
+    id_likes INT NOT NULL AUTO_INCREMENT,
+    id_usuario INT NOT NULL UNIQUE,
+id_publicacion INT NOT NULL UNIQUE,
+fecha_likes DATE NOT NULL,
+ nota_valoracion CHAR(1) NOT NULL,
+    CONSTRAINT pk_likes PRIMARY KEY (id_usuarios, id_publicaciones),
+        CONSTRAINT fk_likes_usuarios FOREIGN KEY (id_usuarios_usuarios) 
+        REFERENCES usuarios (id_usuarios),
+    CONSTRAINT fk_likes_publicaciones FOREIGN KEY (id_publicaciones_publicaciones) 
+        REFERENCES publicaciones (id_publicaciones)
+);
+
+

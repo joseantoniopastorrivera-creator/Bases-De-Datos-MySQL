@@ -1,0 +1,30 @@
+//Enunciado
+CREATE TABLE coches (
+matricula CHAR(7) NOT NULL,
+marca_modelo VARCHAR(50) NOT NULL,
+CONSTRAINT pk_coches PRIMARY KEY (matricula)
+);
+
+//Creamos la base de datos incluyendo acentos y la letra ñ
+CREATE DATABASE Ejercicio2_joseantoniopastorrivera 
+CHARACTER SET utf8mb4 
+COLLATE utf8mb4_spanish_ci;
+
+//La seleccionamos
+USE Ejercicio2_joseantoniopastorrivera;
+
+//Renomnbra la tabla
+ALTER TABLE coches TO vehiculos; 
+
+//Renombra una columna
+ALTER TABLE vehiculos RENAME COLUMN marca_modelo TO marca;
+
+//Añade una columna
+ALTER TABLE vehiculos 
+ADD COLUMN modelo VARCHAR(50) NOT NULL;
+
+//Se muestra la estructura
+show tables;       //Mostraría todas las tablas de la base de datos Ejercicio2_joseantoniopastorrivera
+describe vehiculos;//Mostraría vehiculos
+
+
